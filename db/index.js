@@ -194,6 +194,27 @@ async function getAllTags() {
   }
 }
 
+// db/index.js
+
+async function getUserByUsername(username) {
+  try {
+    const {
+      rows: [user],
+    } = await client.query(
+      `
+      SELECT *
+      FROM users
+      WHERE username=$1;
+    `,
+      [username]
+    );
+
+    return user;
+  } catch (error) {
+    throw error;
+  }
+}
+
 async function getUserById(userId) {
   try {
     const {
@@ -369,4 +390,6 @@ module.exports = {
   getPostById,
   getPostsByTagName,
   getAllTags,
+  getUserByUsername,
+  createUser,
 };
