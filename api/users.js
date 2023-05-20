@@ -21,11 +21,12 @@ usersRouter.use((req, res, next) => {
   next(); // THIS IS DIFFERENT
 });
 
-usersRouter.get('/', (req, res) => {
-  res.send({
-    users: [],
-  });
-});
+// usersRouter.get('/', async(req, res) => {
+
+//   res.send({
+//     users: [],
+//   });
+// });
 
 // api/users.js
 
